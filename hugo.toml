@@ -5,9 +5,10 @@ canonifyurls = true
 languagecode = "zh-cn"
 theme = "Etheme"
 
-pygmentsstyle       = "bw"
-pygmentscodefences  = true
+# pygmentsstyle       = "bw"
+# pygmentscodefences  = true
 
+googleAnalytics = "G-JHKFGEGXJ0"
 
 [markup.highlight]
   codeFences = true
