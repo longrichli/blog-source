@@ -1,0 +1,23 @@
+{{ partial "header.html" . }}
+
+<section id=content>
+  <ul class=posts_listing>
+    {{ range .Site.RegularPages }}
+    <li>
+      <h2 style="text-align: center;"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <div style="text-align: center;" class=date>
+        {{if not .Date.IsZero }}
+        {{ .Date.Format (.Site.Params.dateform | default "2006-01-02 15:04") }}
+        {{end}}
+      </div>
+      <div class="summary">
+        <p>{{ .Summary | safeHTML }}</p>
+        <p style="text-align: center;"><a style="color: #767676;" href="{{ .Permalink }}">阅读全文</a></p>
+      </div>
+
+    </li>
+    {{ end }}
+  </ul>
+</section>
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,39 @@
+{{ partial "header.html" . }}
+
+<section id=content>
+  <h1>{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}</h1>
+
+{{ if .Params.date }}
+  <div id="sub-header">
+    {{ .Date.Format (.Site.Params.dateform | default "2006-01-02 15:04") }} · 
+    {{ $words := countwords .Content }}
+    {{ $speed := .Site.Params.readingSpeed | default 200 }}
+    {{ $minutes := math.Max 1 (div (add $words ($speed | div 2)) $speed) }}
+    {{ $minutes }} {{ cond (eq $minutes 1) "minute" "minutes" }} read
+  </div>
+{{ end }}
+
+  <div class="entry-content">
+    {{ .Content }}
+  </div>
+  <div>
+    {{ with .Params.tags }}
+    <ul class="tags">
+      {{ range . }}
+      <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+  <hr>
+  <div id=links>
+    {{ if .PrevInSection }}
+    <a href="{{.PrevInSection.Permalink}}">&laquo;&nbsp;{{.PrevInSection.Title}}</a>
+    {{ end }}
+    {{ if .NextInSection }}
+    <a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}}&nbsp;&raquo;</a>
+    {{ end }}
+  </div>
+</section>
+
+{{ partial "footer.html" . }}

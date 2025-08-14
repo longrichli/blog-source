@@ -1,0 +1,48 @@
+baseurl = "https://longrichli.github.io/"
+title = "Longrichli's blog"
+author = "longrichli"
+canonifyurls = true
+languagecode = "zh-cn"
+theme = "Etheme"
+
+pygmentsstyle       = "bw"
+pygmentscodefences  = true
+
+
+[markup.highlight]
+  codeFences = true
+  guessSyntax = true
+  hl_Lines = ""
+  lineNoStart = 1
+  lineNos = true
+  lineNumbersInTable = false
+  noClasses = false
+  tabWidth = 4       
+
+
+[params]
+  sitename = "Longrichli's blog"
+  disableWebFonts = false
+  readingSpeed = 150 
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[[menu.main]]
+    name = "首页"
+    url  = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "归档"
+    url  = "/archives/"
+    weight = 3
+
+[[menu.main]]
+    name = "RSS"
+    url  = "/index.xml"
+    weight = 4
+
+
+
