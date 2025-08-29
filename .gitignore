@@ -1,3 +1,4 @@
 *.lock
 public
+*.DS_Store
 
