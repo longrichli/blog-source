@@ -3,6 +3,7 @@ date = '2025-08-30T01:27:24+08:00'
 draft = false
 title = 'Hugo 使用教程'
 summary = 'Hugo 是一个静态web网站生成器，记录一下它的使用方法。'
+tags = ['Hugo','使用教程']
 +++
 ## 简单介绍
 Hugo是一个静态web网站生成器。同类软件有：hexo，Jekyll。相比后两个，我更喜欢Hugo，它由go语言编写，速度快，直接一个二进制程序，没有任何依赖，就很简洁。
