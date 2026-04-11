@@ -3,7 +3,8 @@ date = '2025-08-30T23:16:41+08:00'
 draft = false
 title = 'Makefile编写指南'
 summary = '本文介绍了makefile文件是什么，以及编写方法。给出单个Makefile文件编译示例和多个Makefile文件编译示例'
-tags = ['make', 'Makefile', '使用教程']
+tags = ['make', 'Makefile']
+categories = [ '使用教程' ]
 +++
 
 
@@ -349,5 +350,85 @@ clean:
     - 在顶层 `Makefile` 中，链接主程序的 `main.o` 和子目录生成的所有 `.o` 文件，生成最终的可执行文件。
 4. **清理目标**：
     - `make clean` 会递归调用子目录的 `Makefile` 中的 `clean` 目标，删除所有中间文件。
+## 8. make 原理
+
+```jsx
+build(foo):
+    if foo 是 PHONY:
+        执行 foo 的命令
+        return
+
+    if foo 不存在:
+        需要构建
+
+    对 foo 的每个依赖 dep:
+        build(dep)
+        if dep 比 foo 新:
+            需要构建
+
+    如果需要构建:
+        执行 foo 的命令
+
+```
+
+`make` 的核心判断逻辑只有一句话：
+
+> 目标如果是文件，并且它“已经是最新的”，就什么也不做。
+> 
+
+“最新”的标准是：
+
+- 目标文件存在
+- 并且它比所有依赖都新（时间戳）
+
+`.PHONY` 的真实作用
+
+`.PHONY` 的核心作用有三层：
+
+1.  告诉 make：这是“动作”，不是“产物”
+
+比如：
+
+```makefile
+.PHONY: all clean install test
+
+```
+
+这些目标的语义是：
+
+- all：构建一切
+- clean：清理
+- install：安装
+- test：跑测试
+
+它们**没有对应文件**。
+
+---
+
+2. 禁用时间戳判断
+
+没有 `.PHONY`：
+
+- make 会做 stat()
+- 比较 mtime
+- 可能跳过执行
+
+有 `.PHONY`：
+
+- make **无条件执行 recipe**
+
+---
+
+3. 提升可读性
+
+看到：
+
+```makefile
+.PHONY: clean
+
+```
+
+就知道：
+这是命令的入口，而不是生成文件的规则
 
 end.

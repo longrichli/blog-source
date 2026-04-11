@@ -6,6 +6,12 @@
 {{ if .Params.date }}
   <div id="sub-header">
     {{ .Date.Format (.Site.Params.dateform | default "2006-01-02 15:04") }} · 
+    {{ with .Params.categories }}
+      {{ range $index, $cat := . }}
+        {{ if $index }}, {{ end }}
+        <a href="{{ "categories/" | relURL }}{{ $cat | urlize }}">{{ $cat }}</a>
+      {{ end }} ·
+    {{ end }}
     {{ $words := countwords .Content }}
     {{ $speed := .Site.Params.readingSpeed | default 200 }}
     {{ $minutes := math.Max 1 (div (add $words ($speed | div 2)) $speed) }}
@@ -27,11 +33,15 @@
   </div>
   <hr>
   <div id=links>
-    {{ if .PrevInSection }}
-    <a href="{{.PrevInSection.Permalink}}">&laquo;&nbsp;{{.PrevInSection.Title}}</a>
-    {{ end }}
     {{ if .NextInSection }}
-    <a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}}&nbsp;&raquo;</a>
+    <a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}}&laquo;&nbsp;</a>
+    {{ else }}
+    <a href="#"></a>
+    {{ end }}
+    {{ if .PrevInSection }}
+    <a href="{{.PrevInSection.Permalink}}">&nbsp;&raquo;{{.PrevInSection.Title}}</a>
+    {{ else }}
+    <a href="#"></a>
     {{ end }}
   </div>
 </section>

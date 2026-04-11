@@ -20,6 +20,10 @@
     {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
     {{ if eq $url "/" }}
     {{ .Site.Title }}
+    {{ else if eq .Section "tags" }}
+    标签
+    {{ else if eq .Section "categories" }}
+    分类
     {{ else }}
     {{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}
     {{ end }}
