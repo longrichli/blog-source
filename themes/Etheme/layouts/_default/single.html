@@ -19,6 +19,12 @@
   </div>
 {{ end }}
 
+{{ if .Params.author }}
+  <div id="sub-header" style="font-size: large; margin: 20px 0;">
+   {{ .Params.author }}
+  </div>
+{{ end }}
+
   <div class="entry-content">
     {{ .Content }}
   </div>
