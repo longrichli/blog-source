@@ -2,7 +2,8 @@
 
 <section id=content>
   <ul class=posts_listing>
-    {{ range .Site.RegularPages }}
+    {{ $paginator := .Paginate .Site.RegularPages }}
+    {{ range $paginator.Pages }}
     <li>
       <h2 style="text-align: center;"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
       <div style="text-align: center;" class=date>
@@ -18,6 +19,21 @@
     </li>
     {{ end }}
   </ul>
+  <div class="pagination" style="text-align:center;">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" style="text-decoration: none;"><<</a>
+    {{ else }}
+    <span><<</span>
+    {{ end }}
+
+    <span>第 {{ $paginator.PageNumber }} 页 / 共 {{ $paginator.TotalPages }} 页</span>
+
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" style="text-decoration: none;">>></a>
+    {{ else }}
+    <span>>></span>
+    {{ end }}
+  </div>
 </section>
 
 {{ partial "footer.html" . }}

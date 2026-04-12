@@ -9,6 +9,9 @@ theme = "Etheme"
 # pygmentscodefences  = true
 
 googleAnalytics = "G-JHKFGEGXJ0"
+# 分页
+[pagination]
+  pagerSize = 8
 
 [markup.highlight]
   codeFences = true
