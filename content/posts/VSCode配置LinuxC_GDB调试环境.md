@@ -83,4 +83,4 @@ categories = [ '使用教程' ]
 
 7. 使用技巧
 - 打断点后，鼠标右键点击断点可以编辑条件断点
-- debug console 中 输入 -exec <gdb command> 可以执行gdb调试命令
+- debug console 中 输入 -exec &lt;gdb command&gt; 可以执行gdb调试命令
