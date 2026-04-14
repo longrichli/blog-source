@@ -1,0 +1,39 @@
+{{ partial "header.html" . }}
+
+<section id="content">
+  <ul class="posts_listing">
+    {{ $paginator := .Paginate .Site.RegularPages }}
+    {{ range $paginator.Pages }}
+    <li>
+      <h2 style="text-align: center;"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <div style="text-align: center;" class=date>
+        {{if not .Date.IsZero }}
+        {{ .Date.Format (.Site.Params.dateform | default "2006-01-02 15:04") }}
+        {{end}}
+      </div>
+      <div class="summary">
+        <p>{{ .Summary | safeHTML }}</p>
+        <p style="text-align: center;"><a style="color: #767676;" href="{{ .Permalink }}">阅读全文</a></p>
+      </div>
+
+    </li>
+    {{ end }}
+  </ul>
+  <div class="pagination" style="text-align:center;">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" style="text-decoration: none;"><<</a>
+    {{ else }}
+    <span><<</span>
+    {{ end }}
+
+    <span>第 {{ $paginator.PageNumber }} 页 / 共 {{ $paginator.TotalPages }} 页</span>
+
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" style="text-decoration: none;">>></a>
+    {{ else }}
+    <span>>></span>
+    {{ end }}
+  </div>
+</section>
+
+{{ partial "footer.html" . }}
