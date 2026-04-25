@@ -3,6 +3,7 @@
     font-family: "JetBrainsMono";
     src: url("https://lcf-resources.oss-cn-beijing.aliyuncs.com/resources/longrichli-blog/2026/04/JetBrainsMono-Regular.woff2");
   }
+  /* ![font_3940454_drimor4umam](https://lcf-resources.oss-cn-beijing.aliyuncs.com/resources/longrichli-blog/2026/04/font_3940454_drimor4umam.woff2) */
   /* @font-face {
     font-family: "JetBrainsMono";
     src: url("https://lcf-resources.oss-cn-beijing.aliyuncs.com/resources/longrichli-blog/2026/04/fontawesome-webfont.woff2");
@@ -10,7 +11,9 @@
 
   @font-face {
     font-family: "myfont-unknown";
-    src: url("https://lcf-resources.oss-cn-beijing.aliyuncs.com/resources/longrichli-blog/2026/04/13.woff2");
+   src: url("https://lcf-resources.oss-cn-beijing.aliyuncs.com/resources/longrichli-blog/2026/04/13.woff2");
+   /* src: url("https://lcf-resources.oss-cn-beijing.aliyuncs.com/resources/longrichli-blog/2026/04/font_3940454_drimor4umam.woff2");  */
+
   }
   * {
     border: 0;
@@ -24,13 +27,20 @@
   }
 
   body {
+    background: #f0f0f0;
+  }
+
+  #container {
     /*font-family:'Open Sans', 'Myriad Pro', Myriad, sans-serif;*/
     font-family: 'myfont-unknown';
-    font-size: 17px;
+    font-size: 18px;
     line-height: 160%;
     color: #1d1313;
     max-width: 750px;
+    min-height: 100vh;
+    background: white;
     margin: auto;
+    padding: 1px 50px;
   }
 
   p {
@@ -62,7 +72,7 @@
   }
 
   code {
-    font-size: 12px;
+    font-size: 17px;
     padding: 4px;
   }
 
@@ -205,7 +215,7 @@
   #sub-header,
   .date {
     color: #403c3b;
-    font-size: 13px;
+    font-size: 18px;
   }
 
   #sub-header a {
@@ -259,7 +269,7 @@
   #content {
     text-align: left;
     width: 100%;
-    font-size: 17px;
+    font-size: 22px;
     padding: 1px 0 80px;
   }
 
@@ -295,7 +305,8 @@
   }
 
   .posts_listing li {
-    margin: 0 0 25px 15px;
+    /* margin: 0 0 25px 15px; */
+    margin: 0;
   }
 
   .posts_listing li a:hover,
@@ -317,7 +328,7 @@
   #nav li {
     list-style-type: none;
     display: table-cell;
-    font-size: 15px;
+    font-size: 20px;
     padding: 0 20px;
   }
 
@@ -349,6 +360,9 @@
     padding-top: 225px;
   }
 
+  .article-entry {
+    font-size: 22px;
+  }
   .tags {
     list-style: none;
     /* 去掉默认点 */
@@ -368,7 +382,7 @@
     padding: 4px 10px;
     border-radius: 12px;
     /* 圆角 */
-    font-size: 0.9rem;
+    font-size: 17px;
   }
 
   .tags li a {
@@ -417,7 +431,11 @@
   }
 
   .dark-mode body {
-    background: #212121;
+    background: #2c2c2c;
+  }
+
+  .dark-mode #container {
+    background: #262626;
   }
 
   .dark-mode pre,
@@ -455,7 +473,7 @@
     /* 深灰背景 */
     padding: 4px 10px;
     border-radius: 12px;
-    font-size: 0.9rem;
+    font-size: 17px;
   }
 
   .dark-mode .tags li a {
@@ -520,14 +538,27 @@
     border: none;
     background: none;
     color: white;
-    font-size: 14px;
+    font-size: 20px;
     z-index: 999;
   }
 
   @media (max-width: 750px) {
-    body {
-      padding-left: 20px;
-      padding-right: 20px;
+   body {
+      background: white;
+    }
+
+    #container {
+      width: 100%;
+      padding: 10px 15px;
+      margin: 0;
+    }
+
+    .dark-mode body {
+      background: #262626;
+    }
+
+    .dark-mode #container {
+      background: #262626;
     }
 
     #nav h1 a {
@@ -565,8 +596,22 @@
 
   @media (max-width: 400px) {
     body {
-      padding-left: 20px;
-      padding-right: 20px;
+      background: white;
+      margin: 0;
+    }
+
+    #container {
+      width: 100%;
+      padding: 1px 15px;
+      margin: 0;
+    }
+
+    .dark-mode body {
+      background: #262626;
+    }
+
+    .dark-mode #container {
+      background: #262626;
     }
 
     #nav h1 a {
@@ -581,7 +626,7 @@
     #content {
       margin-top: 0;
       padding-top: 20px;
-      font-size: 15px;
+      font-size: 17px;
     }
 
     .article-entry {
@@ -597,7 +642,7 @@
     }
 
     .posts_listing li div {
-      font-size: 15px;
+      font-size: 17px;
     }
   }
 
