@@ -1,15 +1,15 @@
 {{ partial "header.html" . }}
 
 <section id="content">
-  <ul class="posts_listing" style="list-style:none; padding-left:0;">
+  <ul class="archives_listing">
     {{ range .Site.RegularPages.ByDate.Reverse }}
-    <li style="margin-bottom: 8px; font-size: 22px; ">
-      <span style="color:#888; width:120px; display:inline-block;">
+    <li>
+      <span>
         {{ if not .Date.IsZero }}
         {{ .Date.Format "2006-01-02" }}
         {{ end }}
       </span>
-      <a href="{{ .Permalink }}" style="text-decoration:none;">
+      <a href="{{ .Permalink }}">
         {{ .Title }}
       </a>
     </li>

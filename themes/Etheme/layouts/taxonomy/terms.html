@@ -1,15 +1,15 @@
 {{ partial "header.html" . }}
 
 <section id="content">
-  <ul class="tags">
+  <ul class="terms">
     {{ range .Data.Terms.ByCount }}
-    <li style="margin-bottom: 8px; font-size: 17px; ">
-      <a href="{{ .Page.Permalink }}" style="text-decoration:none;">
+    <li>
+      <a href="{{ .Page.Permalink }}">
         {{ .Page.Title }}
       </a>
-        <span style="color:#888; margin-left: 5px;">
-            ({{ .Count }})
-        </span>
+      <span>
+        ({{ .Count }})
+      </span>
     </li>
     {{ end }}
   </ul>
