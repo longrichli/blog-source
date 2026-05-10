@@ -1,4 +1,5 @@
 *.lock
 public
+test
 *.DS_Store
 
