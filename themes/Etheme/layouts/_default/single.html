@@ -9,7 +9,7 @@
     {{ with .Params.categories }}
     {{ range $index, $cat := . }}
     {{ if $index }}, {{ end }}
-    <a href="{{ " categories/" | relURL }}{{ $cat | urlize }}">{{ $cat }}</a>
+    <a href="{{ "categories/" | relURL }}{{ $cat | urlize }}">{{ $cat }}</a>
     {{ end }} ·
     {{ end }}
     {{ $words := countwords .Content }}
